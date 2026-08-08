@@ -557,4 +557,47 @@
     }
   });
 
+  /* ---------- Kontaktformular → mailto ----------
+     Zwischenlösung, bis ein serverseitiger Endpoint steht. Der Browser kann
+     kein SMTP, also übergeben wir an das lokale Mailprogramm. Weil sich nicht
+     feststellen lässt, ob dort wirklich etwas aufgeht, blenden wir danach
+     immer einen Fallback mit Adresse + Kopier-Button ein. */
+  const cForm = document.getElementById('contactForm');
+  if (cForm) {
+    const RECIPIENT = 'info@fitz-industries.ch';
+    const fallback = document.getElementById('formFallback');
+    const copyBtn = document.getElementById('formCopy');
+    // form.name & form.method sind bereits Eigenschaften des Formulars —
+    // die Felder daher über ihre IDs holen, nicht über cForm.name o. ä.
+    const val = (sel) => (cForm.querySelector(sel)?.value || '').trim();
+    let lastBody = '';
+
+    cForm.addEventListener('submit', (e) => {
+      e.preventDefault(); // native Validierung hat hier bereits gegriffen
+
+      const name = val('#f-name');
+      const subject = `Projektanfrage über fitz-industries.ch${name ? ' — ' + name : ''}`;
+      lastBody = `Name: ${name}\nE-Mail: ${val('#f-email')}\n\n${val('#f-msg')}\n`;
+
+      window.location.href =
+        `mailto:${RECIPIENT}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lastBody)}`;
+
+      if (fallback) {
+        fallback.hidden = false;
+        fallback.scrollIntoView({ block: 'nearest', behavior: reduce ? 'auto' : 'smooth' });
+      }
+    });
+
+    copyBtn?.addEventListener('click', async () => {
+      const text = `An: ${RECIPIENT}\n\n${lastBody}`;
+      try {
+        await navigator.clipboard.writeText(text);
+        copyBtn.textContent = 'Kopiert';
+      } catch {
+        copyBtn.textContent = 'Kopieren nicht möglich';
+      }
+      setTimeout(() => { copyBtn.textContent = 'Nachricht kopieren'; }, 2500);
+    });
+  }
+
 })();

@@ -736,7 +736,7 @@
         </div>
       </div>
 
-      <form class="contact__form" id="contactForm" action="https://formspree.io/f/your-id" method="POST">
+      <form class="contact__form" id="contactForm" action="mailto:info@fitz-industries.ch" method="POST" enctype="text/plain">
         <span class="cform__glow" aria-hidden="true"></span>
         <span class="cform__badge" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg></span>
         <h3 class="cform__title">Schreiben Sie uns</h3>
@@ -754,7 +754,8 @@
         </div>
         <div class="field field--icon field--area">
           <svg class="field__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="m14 6 4 4"/></svg>
-          <textarea name="message" id="f-msg" rows="5" required placeholder=" "></textarea>
+          <!-- maxlength: mailto-URLs werden von manchen Clients (Outlook) ab ~2000 Zeichen abgeschnitten -->
+          <textarea name="message" id="f-msg" rows="5" required maxlength="1500" placeholder=" "></textarea>
           <label for="f-msg">Nachricht</label>
         </div>
 
@@ -764,6 +765,14 @@
         </button>
 
         <p class="cform__status"><i></i>Aktuell verfügbar für neue Projekte</p>
+
+        <!-- Fallback, falls kein Mailprogramm eingerichtet ist (per JS eingeblendet) -->
+        <div class="cform__fallback" id="formFallback" hidden>
+          <p>Ihr E-Mail-Programm sollte sich geöffnet haben — bitte dort noch auf <strong>Senden</strong> klicken.</p>
+          <p class="cform__fallback-alt">Nichts passiert? Schreiben Sie direkt an
+            <a href="mailto:info@fitz-industries.ch">info@fitz-industries.ch</a>.</p>
+          <button type="button" class="cform__copy" id="formCopy">Nachricht kopieren</button>
+        </div>
       </form>
     </section>
 
