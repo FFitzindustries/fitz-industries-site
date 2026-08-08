@@ -202,7 +202,7 @@
     const W = 2094, H = 1025;
     // positions via equirectangular projection: x=(lon+180)/360*W, y=(90-lat)/180*H
     const hubs = [
-      { name: 'Schweiz',      city: 'Zürich · Hauptsitz',     x: 1097, y: 243, hq: true,   arc: false },
+      { name: 'Schweiz',      city: 'Schweiz · Sitz',         x: 1097, y: 243, hq: true,   arc: false },
       { name: 'Liechtenstein',city: 'Vaduz',                  x: 1108, y: 246, small: true, arc: false },
       { name: 'Österreich',   city: 'Salzburg',               x: 1131, y: 242, small: true, arc: false },
       { name: 'Deutschland',  city: 'FIH',                    x: 1107, y: 221, small: true, arc: false },
@@ -402,15 +402,15 @@
 
     // ▼▼▼ Hier die echten Daten pro Abteilung eintragen (Name / E-Mail / Tel) ▼▼▼
     const DEPARTMENTS = [
-      { dept: 'Buchhaltung',      name: '—', email: 'buchhaltung@fitz-industries.ch', tel: '+41 00 000 00 00', icon: 'calc' },
-      { dept: 'Grafik & Design',  name: '—', email: 'design@fitz-industries.ch',      tel: '+41 00 000 00 00', icon: 'pen' },
-      { dept: 'Fulfillment',      name: '—', email: 'fulfillment@fitz-industries.ch', tel: '+41 00 000 00 00', icon: 'box' },
-      { dept: 'Backoffice',       name: '—', email: 'backoffice@fitz-industries.ch',  tel: '+41 00 000 00 00', icon: 'folder' },
-      { dept: 'Information',      name: '—', email: 'info@fitz-industries.ch',        tel: '+41 00 000 00 00', icon: 'info' },
-      { dept: 'Geschäftsleitung', name: '—', email: 'management@fitz-industries.ch',  tel: '+41 00 000 00 00', icon: 'brief' },
-      { dept: 'Büro',             name: '—', email: 'office@fitz-industries.ch',      tel: '+41 00 000 00 00', icon: 'building' },
-      { dept: 'Marketing',        name: '—', email: 'marketing@fitz-industries.ch',   tel: '+41 00 000 00 00', icon: 'mega' },
-      { dept: 'Presse',           name: '—', email: 'presseanfragen@fitz-industries.ch', tel: '+41 00 000 00 00', icon: 'news' },
+      { dept: 'Buchhaltung',      name: '—', email: 'buchhaltung@fitz-industries.ch', tel: '+41 79 901 81 81', icon: 'calc' },
+      { dept: 'Grafik & Design',  name: '—', email: 'design@fitz-industries.ch',      tel: '+41 79 901 81 81', icon: 'pen' },
+      { dept: 'Fulfillment',      name: '—', email: 'fulfillment@fitz-industries.ch', tel: '+41 79 901 81 81', icon: 'box' },
+      { dept: 'Backoffice',       name: '—', email: 'backoffice@fitz-industries.ch',  tel: '+41 79 901 81 81', icon: 'folder' },
+      { dept: 'Information',      name: '—', email: 'info@fitz-industries.ch',        tel: '+41 79 901 81 81', icon: 'info' },
+      { dept: 'Geschäftsleitung', name: '—', email: 'management@fitz-industries.ch',  tel: '+41 79 901 81 81', icon: 'brief' },
+      { dept: 'Büro',             name: '—', email: 'office@fitz-industries.ch',      tel: '+41 79 901 81 81', icon: 'building' },
+      { dept: 'Marketing',        name: '—', email: 'marketing@fitz-industries.ch',   tel: '+41 79 901 81 81', icon: 'mega' },
+      { dept: 'Presse',           name: '—', email: 'presseanfragen@fitz-industries.ch', tel: '+41 79 901 81 81', icon: 'news' },
     ];
     // ▲▲▲ Ein Ort zum Pflegen. tel: beliebig formatieren, Link wird automatisch bereinigt. ▲▲▲
 
@@ -505,7 +505,7 @@
     hmodal.innerHTML =
       '<div class="hmodal__backdrop" data-hclose></div>' +
       '<div class="hmodal__dialog" role="document">' +
-        '<button class="hmodal__close" type="button" data-hclose aria-label="Schließen"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>' +
+        '<button class="hmodal__close" type="button" data-hclose aria-label="Schliessen"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>' +
         '<p class="hmodal__sector"></p><h3 class="hmodal__name"></h3><div class="hmodal__body"></div>' +
       '</div>';
     document.body.appendChild(hmodal);
@@ -537,7 +537,7 @@
       box.appendChild(mark);
     }
 
-    // Anzahl Töchter → Fuß mit Zahl + Pfeil
+    // Anzahl Töchter → Fuss mit Zahl + Pfeil
     const body = hold.querySelector('.hold__body');
     const total = hold.querySelectorAll('.hold__list > li').length;
     if (!head.querySelector('.hold__foot')) {

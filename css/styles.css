@@ -1,5 +1,5 @@
 /* ============== FITZ INDUSTRIES — Corporate Identity ============== */
-/* Schwarz · Weiß · Stahlblau · industrielle Grotesk · Punkte-Weltkarte */
+/* Schwarz · Weiss · Stahlblau · industrielle Grotesk · Punkte-Weltkarte */
 :root{
   --bg:#050607; --bg-2:#0b0d0f; --card:#0e1114;
   --text:#f3f5f6; --muted:#8b97a0;
@@ -34,7 +34,7 @@ body.lock{overflow:hidden;height:100vh}
 a{color:inherit;text-decoration:none}
 .gold{color:var(--accent)}
 h1,h2,h3,h4{font-weight:400;line-height:1.06}
-/* Akzentwörter in den großen Display-Headlines: leuchtender Stahlblau-Verlauf + Glow */
+/* Akzentwörter in den grossen Display-Headlines: leuchtender Stahlblau-Verlauf + Glow */
 .manifest__text .gold,
 .showcase__intro h2 .gold,
 .holdings__title .gold,
@@ -86,6 +86,8 @@ img{display:block;max-width:100%}
 .nav__cta:hover{background:var(--accent);color:#03121a!important}
 .nav__burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:none}
 .nav__burger span{width:26px;height:2px;background:var(--text)}
+/* Rechtslinks im Mobile-Overlay — am Desktop ausgeblendet (dort im Footer) */
+.nav__legal{display:none}
 
 /* ===== Hero ===== */
 .hero{position:relative;height:100vh;min-height:640px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center}
@@ -165,7 +167,7 @@ img{display:block;max-width:100%}
 .feat__txt{display:flex;flex-direction:column;gap:.22rem;min-width:0}
 .feat__txt b{font-size:.95rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text)}
 .feat__txt small{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500}
-/* Mobile: das große Headline-Loch unter „WEITBLICK." schließen */
+/* Mobile: das grosse Headline-Loch unter „WEITBLICK." schliessen */
 @media(max-width:620px){
   .manifest{padding-top:11vh}
   .manifest__pin{min-height:auto;padding-bottom:2.5rem}
@@ -201,7 +203,7 @@ a.hold:hover{transform:translateY(-3px)}
   font-family:var(--display);font-size:clamp(1.4rem,3vw,2.1rem);letter-spacing:.02em;line-height:1;
   text-transform:uppercase;color:#fff;white-space:nowrap;text-shadow:0 2px 14px rgba(0,0,0,.6)}
 .hold:hover .hold__code{color:var(--accent-2)}
-/* Echtes Holding-Logo (weiße Silhouette) – feste, zentrierte Box hält die Namens-Spalte bündig */
+/* Echtes Holding-Logo (weisse Silhouette) – feste, zentrierte Box hält die Namens-Spalte bündig */
 .hold__logo{flex:0 0 134px;width:134px;height:clamp(2.3rem,4.6vw,3.1rem);
   object-fit:contain;object-position:center;display:block;
   filter:drop-shadow(0 2px 14px rgba(0,0,0,.55));transition:opacity .45s var(--ease)}
@@ -248,7 +250,7 @@ a.hold:hover{transform:translateY(-3px)}
 /* Intro zweispaltig mit Gebäude-Bild + leuchtender Kante (wie Referenz) */
 .showcase__intro{position:relative;max-width:none;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4.5rem);align-items:start;padding:9vh var(--pad) 6vh}
 .showcase__intro-text{position:relative;z-index:1;max-width:600px}
-/* Gebäude absolut → groß, bleedet nach oben & links, ohne die Sektion zu strecken */
+/* Gebäude absolut → gross, bleedet nach oben & links, ohne die Sektion zu strecken */
 .showcase__intro-media{position:absolute;right:calc(var(--pad)*-1);bottom:clamp(10px,4vh,70px);
   height:clamp(740px,100vh,1180px);display:flex;align-items:flex-start;justify-content:flex-end;pointer-events:none;z-index:0}
 .bldg-img{height:100%;width:auto;max-width:none;object-fit:contain;object-position:top right;
@@ -285,7 +287,7 @@ a.hold:hover{transform:translateY(-3px)}
 .hold__cta:hover svg{transform:translateX(3px)}
 /* Länder als Flaggen-Pill */
 .hold__geohead{background:rgba(134,168,184,.06);border:1px solid var(--line);border-radius:30px;padding:.36rem .72rem;align-self:flex-start}
-/* Karten-Body standardmäßig zugeklappt → erst per „Mehr erfahren" öffnen */
+/* Karten-Body standardmässig zugeklappt → erst per „Mehr erfahren" öffnen */
 .hold__body{display:none}
 .hold.is-expanded .hold__body{display:grid}
 .hold.is-expanded .hold__cta{border-color:var(--accent);background:rgba(134,168,184,.14);color:#fff}
@@ -702,6 +704,10 @@ a.hold:hover{transform:translateY(-3px)}
 .footer__navgrid a:hover{color:var(--text)}
 .footer__bottom{display:flex;flex-wrap:wrap;gap:.6rem 2rem;justify-content:space-between;align-items:center;font-size:.76rem;color:var(--muted);letter-spacing:.08em;padding-top:2.4rem}
 .footer__legal{opacity:.7}
+/* Pflichtlinks — bewusst kontrastreicher als der übrige Footer-Text */
+.footer__links{display:flex;gap:1.6rem}
+.footer__links a{color:var(--accent);transition:color .3s}
+.footer__links a:hover{color:var(--accent-3)}
 
 /* nav social (mobile only) */
 .nav__social{display:none}
@@ -722,6 +728,8 @@ a.hold:hover{transform:translateY(-3px)}
   .nav__cta{border-color:var(--accent)}
   .nav__social{display:inline-flex;align-items:center;gap:.6rem;color:var(--accent)}
   .nav__social svg{width:24px;height:24px}
+  .nav__legal{display:flex;gap:1.8rem;margin-top:.4rem}
+  .nav__legal a{font-size:.78rem;letter-spacing:.16em;color:var(--muted)}
   .nav__burger{display:flex;z-index:7001;position:relative;width:30px;height:18px;justify-content:center}
   .nav__burger span{position:absolute;transition:transform .4s var(--ease),opacity .3s}
   .nav__burger span:first-child{top:2px}

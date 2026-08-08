@@ -6,9 +6,10 @@
   <title>FITZ INDUSTRIES | Internationale Holding</title>
   <meta name="description" content="Fitz Industries — eine globale Unternehmensgruppe seit 2003, gegründet von Fitz M. Vier Holdings, sechs Aktiengesellschaften und über 50 Unternehmen in elf Ländern, vereint unter dem Dach bedingungsloser Qualität." />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Schriften lokal (kein Google-Fonts-CDN, keine Drittanbieter-Requests) -->
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/fonts.css?v=1" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23050607'/%3E%3Ctext x='16' y='24' font-family='Arial Black,Impact' font-weight='900' font-size='22' fill='%2386a8b8' text-anchor='middle'%3EF%3C/text%3E%3C/svg%3E" />
   <link rel="stylesheet" href="css/styles.css?v=45" />
 </head>
@@ -46,6 +47,11 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.3"/></svg>
         <span>Instagram</span>
       </a>
+      <!-- Rechtslinks: nur im Mobile-Overlay sichtbar, am Desktop stehen sie im Footer -->
+      <span class="nav__legal">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </span>
     </nav>
     <button class="nav__burger" id="burger" aria-label="Menü"><span></span><span></span></button>
   </header>
@@ -549,7 +555,7 @@
         <p class="kicker gold reveal-fade">— Engagement</p>
         <img class="foundation__logo reveal-fade" src="assets/brand/foundation-white.png" alt="Fitz Foundation" />
         <p class="foundation__lead reveal-fade">Erfolg verpflichtet. Mit der Fitz Foundation bündeln wir unser gesellschaftliches Engagement — mit Fokus auf die nachhaltige Unterstützung von Kinder- und Tierheimen sowie den Schutz der Weltmeere.</p>
-        <p class="foundation__quote reveal-fade">„Echte Größe misst sich nicht in Zahlen, sondern im positiven Einfluss auf die Gesellschaft."</p>
+        <p class="foundation__quote reveal-fade">„Echte Grösse misst sich nicht in Zahlen, sondern im positiven Einfluss auf die Gesellschaft."</p>
       </div>
     </section>
 
@@ -615,7 +621,7 @@
             <svg class="review-card__g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18A13.2 13.2 0 0 1 11 24c0-1.45.25-2.86.69-4.18v-5.7H4.34A21.98 21.98 0 0 0 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>
           </div>
           <span class="review-card__stars" aria-label="5 von 5">★★★★★</span>
-          <blockquote>Visionäre Führung und ein starkes internationales Netzwerk. Hier wird Verantwortung großgeschrieben.</blockquote>
+          <blockquote>Visionäre Führung und ein starkes internationales Netzwerk. Hier wird Verantwortung grossgeschrieben.</blockquote>
         </figure>
 
         <figure class="review-card">
@@ -687,7 +693,7 @@
       <div class="igpop" id="igPop" role="dialog" aria-modal="true" aria-labelledby="igPopTitle" hidden>
         <div class="igpop__backdrop" data-igclose></div>
         <div class="igpop__panel" role="document">
-          <button type="button" class="igpop__close" aria-label="Schließen" data-igclose>
+          <button type="button" class="igpop__close" aria-label="Schliessen" data-igclose>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           </button>
           <span class="igpop__badge"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.4" fill="currentColor"/></svg></span>
@@ -713,7 +719,7 @@
           <ul class="contact__info">
             <li>
               <span class="cinfo__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.3 7-12a7 7 0 1 0-14 0c0 5.7 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
-              <span class="cinfo__txt"><i>Hauptsitz</i><strong>Zürich, Schweiz</strong></span>
+              <span class="cinfo__txt"><i>Sitz</i><strong>Schweiz</strong></span>
             </li>
             <li>
               <span class="cinfo__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg></span>
@@ -731,7 +737,7 @@
               <g class="emap__lines"></g>
               <g class="emap__nodes"></g>
             </svg>
-            <span class="contact__chip"><img src="assets/flags/ch.svg" alt="" class="contact__chip-flag" />Switzerland <em>Headquarters</em></span>
+            <span class="contact__chip"><img src="assets/flags/ch.svg" alt="" class="contact__chip-flag" />Switzerland <em>Sitz</em></span>
           </div>
         </div>
       </div>
@@ -820,6 +826,7 @@
     <div class="footer__bottom">
       <span>© 2025 Fitz Industries · Gegründet 2003 von Fitz M.</span>
       <span class="footer__legal">Marken &amp; Logos sind Eigentum der jeweiligen Unternehmen.</span>
+      <span class="footer__links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></span>
       <span class="gold">fitz-industries.ch</span>
     </div>
   </footer>
@@ -828,7 +835,7 @@
   <div class="cmodal" id="contactModal" aria-hidden="true">
     <div class="cmodal__backdrop" data-contact-close></div>
     <div class="cmodal__dialog" role="dialog" aria-modal="true" aria-labelledby="cmodalTitle">
-      <button class="cmodal__close" type="button" aria-label="Schließen" data-contact-close>
+      <button class="cmodal__close" type="button" aria-label="Schliessen" data-contact-close>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
       </button>
       <p class="kicker">— Kontakt</p>
@@ -838,10 +845,10 @@
     </div>
   </div>
 
-  <!-- Libraries (CDN) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+  <!-- Libraries lokal unter js/vendor/ (kein CDN, siehe js/vendor/README.md) -->
+  <script src="js/vendor/gsap.min.js"></script>
+  <script src="js/vendor/ScrollTrigger.min.js"></script>
+  <script src="js/vendor/lenis.min.js"></script>
   <script src="js/cursor.js?v=2"></script>
   <script src="js/main.js?v=16"></script>
 </body>

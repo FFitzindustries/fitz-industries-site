@@ -1,0 +1,105 @@
+/* ============== FITZ INDUSTRIES — Rechtsseiten ==============
+   Schlankes Layout für impressum.html und datenschutz.html.
+   Bewusst eigenständig: kein GSAP, kein Lenis, kein Preloader,
+   kein Custom-Cursor, kein Video. Die Seiten müssen auch dann
+   vollständig lesbar sein, wenn JavaScript scheitert.
+   Farben und Schriften stammen aus der Haupt-CI.
+   ============================================================ */
+
+:root{
+  --bg:#050607; --bg-2:#0b0d0f; --card:#0e1114;
+  --text:#f3f5f6; --muted:#8b97a0;
+  --accent-1:#5e8597; --accent:#86a8b8; --accent-2:#bcd6e0; --accent-3:#eaf6fc;
+  --line:rgba(134,168,184,.16);
+  --sans:"Inter",system-ui,sans-serif;
+  --display:"Anton",Impact,sans-serif;
+  --measure:780px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:var(--sans);font-weight:300;
+  font-size:1rem;line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--accent);color:#03121a}
+
+/* ---------- Header ---------- */
+.lheader{
+  position:sticky;top:0;z-index:10;
+  display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
+  padding:1.1rem clamp(1.25rem,5vw,4rem);
+  background:rgba(5,6,7,.92);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.lheader__brand img{height:26px;display:block}
+.lheader__back{
+  font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;transition:color .3s;white-space:nowrap;
+}
+.lheader__back:hover{color:var(--accent)}
+
+/* ---------- Inhalt ---------- */
+.lmain{max-width:var(--measure);margin:0 auto;padding:clamp(3rem,8vw,6rem) clamp(1.25rem,5vw,2rem) 5rem}
+.lkicker{
+  font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;
+  color:var(--accent);font-weight:600;margin-bottom:1.2rem;
+}
+.lmain h1{
+  font-family:var(--display);font-weight:400;
+  font-size:clamp(2.2rem,7vw,3.6rem);line-height:1.05;
+  text-transform:uppercase;letter-spacing:.01em;margin-bottom:2.6rem;
+}
+.lmain h2{
+  font-size:1.05rem;font-weight:600;letter-spacing:.02em;color:var(--accent-2);
+  margin:3rem 0 .9rem;padding-top:1.6rem;border-top:1px solid var(--line);
+}
+.lmain h2:first-of-type{margin-top:0}
+.lmain h3{font-size:.95rem;font-weight:600;color:var(--text);margin:1.8rem 0 .5rem}
+.lmain p{margin-bottom:1.1rem;color:var(--muted)}
+.lmain p strong{color:var(--text);font-weight:500}
+.lmain ul{margin:0 0 1.1rem 1.1rem;color:var(--muted)}
+.lmain li{margin-bottom:.4rem}
+.lmain li::marker{color:var(--accent-1)}
+.lmain a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line);transition:color .3s,border-color .3s}
+.lmain a:hover{color:var(--accent-3);border-color:var(--accent)}
+
+/* Adress- und Kontaktbloecke */
+.lblock{
+  background:var(--card);border:1px solid var(--line);border-radius:10px;
+  padding:1.4rem 1.6rem;margin-bottom:1.4rem;
+}
+.lblock p{margin:0;color:var(--text);font-weight:400;line-height:1.7}
+.lblock .lblock__label{
+  display:block;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--accent-1);font-weight:600;margin-bottom:.7rem;
+}
+
+/* Merksatz-/Hinweiskasten */
+.lnote{
+  border-left:2px solid var(--accent-1);background:var(--bg-2);
+  padding:1.1rem 1.4rem;margin:1.6rem 0;border-radius:0 8px 8px 0;
+}
+.lnote p{margin:0;font-size:.92rem}
+
+/* Stand-Zeile */
+.lstand{margin-top:3.5rem;padding-top:1.6rem;border-top:1px solid var(--line);
+  font-size:.8rem;color:var(--muted);opacity:.75}
+
+/* ---------- Footer ---------- */
+.lfooter{
+  border-top:1px solid var(--line);
+  padding:2rem clamp(1.25rem,5vw,4rem);
+  display:flex;flex-wrap:wrap;gap:.6rem 2rem;justify-content:space-between;align-items:center;
+  font-size:.76rem;color:var(--muted);letter-spacing:.08em;
+}
+.lfooter a{color:var(--accent);text-decoration:none;transition:color .3s}
+.lfooter a:hover{color:var(--accent-3)}
+.lfooter__links{display:flex;gap:1.6rem}
+
+@media(max-width:640px){
+  .lfooter{flex-direction:column;align-items:flex-start}
+  .lheader{padding-left:1.25rem;padding-right:1.25rem}
+}
