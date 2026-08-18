@@ -75,10 +75,14 @@ Gegenprüfung, muss leer bleiben:
 
 ```bash
 grep -oE '(src|href)="https?://[^"]+"' index.html impressum.html datenschutz.html \
-  | grep -vE 'instagram\.com|ubs\.com|stadlerrail|raiffeisen\.at|mi\.com|arvaloo\.com|vercel\.com|unsplash\.com|stock\.adobe\.com'
+  | grep -vE 'instagram\.com|ubs\.com|stadlerrail|raiffeisen\.at|mi\.com|arvaloo\.com|vercel\.com|unsplash\.com|stock\.adobe\.com|wa\.me|fitz-industries\.ch'
 ```
 
-(Die ausgenommenen Hosts sind reine Textlinks. Sie lösen erst beim Klick einen Request aus.)
+(Die ausgenommenen Hosts sind reine Textlinks. Sie lösen erst beim Klick einen Request aus.
+`wa.me` gehört seit dem WhatsApp-Kontakt dazu: der Sticky-Button `.wafab` und die beiden weiteren
+WhatsApp-Links sind gewöhnliche `<a href>`, **kein Widget und kein Script von Meta**. Damit bleibt
+die Bewertung in Abschnitt 3 unverändert. Ein eingebettetes WhatsApp-Business-Widget würde sie
+kippen.)
 
 ## 5. Hosting
 

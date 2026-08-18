@@ -45,7 +45,7 @@ Apex → `www` einrichten.
 3. **Unternehmen** — horizontaler Pin-Scroll durch alle 11 Firmen (FHG mit echtem Logo)
 4. **Globale Präsenz** — „Swiss Heritage"-Marquee mit echten Länder-Fotos (Liechtenstein, Österreich, Deutschland, Luxemburg, Tschechien, Bulgarien, Alpenraum)
 5. **Fitz Foundation** — cinematic Parallax
-6. **Kontakt** — Formular (`mailto:`) + Abteilungs-Popup
+6. **Kontakt** — Formular (`mailto:`) + Sitz / WhatsApp / E-Mail
 7. **Impressum / Datenschutz** — eigene Seiten, verlinkt in Footer und Mobile-Menü
 
 ## Kontaktformular
@@ -59,8 +59,22 @@ Mailprogramm reagiert.
 [`RECHTLICHES.md`](RECHTLICHES.md) Abschnitt 3 zu lesen.** Ein echtes Server-Formular macht einen
 Auftragsbearbeitungsvertrag nötig und kippt die Bewertung zum EU-Vertreter nach Art. 27 DSGVO.
 
-Die Telefonnummern und Ansprechpartner des Abteilungs-Popups stehen zentral in `js/main.js`
-(`DEPARTMENTS`, ein Ort zum Pflegen).
+## WhatsApp
+
+Kontaktkanäle sind bewusst auf drei reduziert: **Sitz, WhatsApp, E-Mail**. Das frühere
+Abteilungs-Popup mit neun Karten (`DEPARTMENTS` in `js/main.js`) wurde entfernt.
+
+Die WhatsApp-Nummer steht an drei Stellen in `index.html` — Kontakt-Infozeile, Social-Leiste und
+dem Sticky-Button rechts unten (`.wafab`). Beim Ändern alle drei fassen:
+
+```bash
+grep -n 'wa.me/' index.html      # muss 3 Treffer liefern
+```
+
+Der Button ist ein **reiner `wa.me`-Link**, kein eingebettetes Widget. Er lädt beim Seitenaufruf
+nichts von Meta und löst erst beim Klick einen Request aus. Das ist die Voraussetzung dafür, dass
+die Aussagen in `datenschutz.html` weiter stimmen — **kein WhatsApp-Business-Widget einbauen**,
+siehe [`RECHTLICHES.md`](RECHTLICHES.md) Abschnitt 3.
 
 ## Schriften und Libraries — lokal, nicht per CDN
 
