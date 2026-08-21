@@ -424,8 +424,11 @@ a.hold:hover{transform:translateY(-3px)}
 }
 
 /* ===== Freischwebender Kolibri (oben rechts) ===== */
-.colibri-fixed{position:fixed;top:1.1rem;right:1.4rem;z-index:7500;width:auto;height:42px;
-  opacity:.9;pointer-events:none;filter:drop-shadow(0 4px 14px rgba(0,0,0,.5))}
+.colibri-fixed{position:fixed;top:1.1rem;right:1.4rem;z-index:7500;height:42px;display:block;
+  opacity:.9;filter:drop-shadow(0 4px 14px rgba(0,0,0,.5));
+  transition:opacity .25s ease,transform .25s ease}
+.colibri-fixed img{height:100%;width:auto;display:block}
+.colibri-fixed:hover,.colibri-fixed:focus-visible{opacity:1;transform:translateY(-2px)}
 @media(max-width:900px){.colibri-fixed{display:none}}
 
 /* ===== Flaggen-Laufband (Präsenz) ===== */
