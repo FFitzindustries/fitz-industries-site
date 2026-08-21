@@ -7,3 +7,9 @@ bilder/
 .playwright-mcp/
 *.tmp
 igpop.png
+
+# Secrets
+.env*
+!.env.example
+.vercel
+node_modules/

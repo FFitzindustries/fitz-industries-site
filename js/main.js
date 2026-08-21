@@ -471,41 +471,66 @@
     }
   });
 
-  /* ---------- Kontaktformular → mailto ----------
-     Zwischenlösung, bis ein serverseitiger Endpoint steht. Der Browser kann
-     kein SMTP, also übergeben wir an das lokale Mailprogramm. Weil sich nicht
-     feststellen lässt, ob dort wirklich etwas aufgeht, blenden wir danach
-     immer einen Fallback mit Adresse + Kopier-Button ein. */
+  /* ---------- Kontaktformular → /api/contact ----------
+     Die Serverless-Function verschickt über das eigene SMTP-Postfach. Der
+     Fallback mit Adresse + Kopier-Button erscheint nur noch, wenn der Versand
+     wirklich fehlschlägt — nicht mehr bei jedem Absenden. */
   const cForm = document.getElementById('contactForm');
   if (cForm) {
     const RECIPIENT = 'info@fitz-industries.ch';
     const fallback = document.getElementById('formFallback');
-    const copyBtn = document.getElementById('formCopy');
-    // form.name & form.method sind bereits Eigenschaften des Formulars —
-    // die Felder daher über ihre IDs holen, nicht über cForm.name o. ä.
+    // Original-Markup sichern: es dient jetzt als Fehlerfall-Anzeige
+    const errorHTML = fallback ? fallback.innerHTML : '';
+    const btn = cForm.querySelector('button[type=submit]');
+    const btnLabel = btn?.querySelector('span');
+    const btnText = btnLabel ? btnLabel.textContent : '';
     const val = (sel) => (cForm.querySelector(sel)?.value || '').trim();
     let lastBody = '';
 
-    cForm.addEventListener('submit', (e) => {
+    const show = (html) => {
+      if (!fallback) return;
+      fallback.innerHTML = html;
+      fallback.hidden = false;
+      fallback.scrollIntoView({ block: 'nearest', behavior: reduce ? 'auto' : 'smooth' });
+    };
+
+    cForm.addEventListener('submit', async (e) => {
       e.preventDefault(); // native Validierung hat hier bereits gegriffen
 
       const name = val('#f-name');
-      const subject = `Projektanfrage über fitz-industries.ch${name ? ' — ' + name : ''}`;
       lastBody = `Name: ${name}\nE-Mail: ${val('#f-email')}\n\n${val('#f-msg')}\n`;
 
-      window.location.href =
-        `mailto:${RECIPIENT}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lastBody)}`;
+      if (btn) btn.disabled = true;
+      if (btnLabel) btnLabel.textContent = 'Wird gesendet…';
+      if (fallback) fallback.hidden = true;
 
-      if (fallback) {
-        fallback.hidden = false;
-        fallback.scrollIntoView({ block: 'nearest', behavior: reduce ? 'auto' : 'smooth' });
+      try {
+        const r = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(Object.fromEntries(new FormData(cForm))),
+        });
+        const j = await r.json().catch(() => ({}));
+        if (r.ok && j.success) {
+          show('<p>Vielen Dank — Ihre Nachricht ist bei uns eingegangen. Wir melden uns zeitnah.</p>');
+          cForm.reset();
+        } else {
+          show(errorHTML);
+        }
+      } catch {
+        show(errorHTML);
+      } finally {
+        if (btn) btn.disabled = false;
+        if (btnLabel) btnLabel.textContent = btnText;
       }
     });
 
-    copyBtn?.addEventListener('click', async () => {
-      const text = `An: ${RECIPIENT}\n\n${lastBody}`;
+    // Delegation, weil der Kopier-Button beim Fehlerfall neu eingesetzt wird
+    fallback?.addEventListener('click', async (ev) => {
+      const copyBtn = ev.target.closest('#formCopy');
+      if (!copyBtn) return;
       try {
-        await navigator.clipboard.writeText(text);
+        await navigator.clipboard.writeText(`An: ${RECIPIENT}\n\n${lastBody}`);
         copyBtn.textContent = 'Kopiert';
       } catch {
         copyBtn.textContent = 'Kopieren nicht möglich';

@@ -1,0 +1,8 @@
+{
+  "name": "fitz-industries-site",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "nodemailer": "^7.0.5"
+  }
+}
