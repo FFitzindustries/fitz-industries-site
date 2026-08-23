@@ -477,7 +477,7 @@
      wirklich fehlschlägt — nicht mehr bei jedem Absenden. */
   const cForm = document.getElementById('contactForm');
   if (cForm) {
-    const RECIPIENT = 'info@fitz-industries.ch';
+    const RECIPIENT = 'info@fitzindustries.ch';
     const fallback = document.getElementById('formFallback');
     // Original-Markup sichern: es dient jetzt als Fehlerfall-Anzeige
     const errorHTML = fallback ? fallback.innerHTML : '';

@@ -25,7 +25,7 @@ Produktion läuft auf **Vercel**, nicht auf GitHub Pages.
 |---|---|
 | Team | `fitz-industries` (FitzIndustries) |
 | Projekt | `fitz-industries-site` |
-| Production-URL | `https://www.fitz-industries.ch` |
+| Production-URL | `https://www.fitzindustries.ch` |
 | Framework Preset | Other (statisch, kein Build) |
 
 ```bash
@@ -33,11 +33,15 @@ vercel --scope fitz-industries            # Preview-Deploy
 vercel --prod --scope fitz-industries     # Produktion
 ```
 
-**Bekanntes Problem:** Die Apex-Domain `fitz-industries.ch` zeigt auf easyname (`91.151.18.29`,
-`web9.wh20.easyname.systems`) und antwortet nicht. Erreichbar ist nur `www.fitz-industries.ch`.
-Die Nameserver sind gemischt (`ns.inwx.de` + `ns1/ns2.vercel-dns.com`). Zu tun: Apex bei Vercel
-als Domain hinzufügen und beim Registrar INWX auf Vercel zeigen lassen, oder eine Weiterleitung
-Apex → `www` einrichten.
+**Domains:** Die Primärdomain ist `fitzindustries.ch`. Der Apex leitet per 308 auf
+`www.fitzindustries.ch` weiter, DNS läuft über INWX (`ns.inwx.de`), A-Record `@ -> 216.150.1.1`,
+`www` als CNAME auf `4e6a86914ded9047.vercel-dns-016.com.`
+
+**Altdomain:** `fitz-industries.ch` liegt weiterhin im selben Vercel-Projekt und leitet über
+`www` auf `www.fitzindustries.ch` um. Der Apex `fitz-industries.ch` ist noch defekt: ein
+Konflikt-A-Record auf easyname (`91.151.18.29`) steht neben dem Vercel-Record, dadurch scheitert
+TLS. Zu tun: diesen A-Record beim Registrar löschen und die gemischten Nameserver
+(`ns.inwx.de` + `ns1/ns2.vercel-dns.com`) auf einen Anbieter vereinheitlichen.
 
 ## Sektionen
 1. **Hero** — echtes Brand-Video + Tagline „Global Vision. Swiss Heritage."
@@ -50,7 +54,7 @@ Apex → `www` einrichten.
 
 ## Kontaktformular
 
-Das Formular ist ein **`mailto:`-Formular** (`action="mailto:info@fitz-industries.ch"`,
+Das Formular ist ein **`mailto:`-Formular** (`action="mailto:info@fitzindustries.ch"`,
 `enctype="text/plain"`). Es überträgt nichts an einen Server, sondern öffnet das Mailprogramm des
 Besuchers. Ein JS-Fallback blendet einen Hinweis samt „Nachricht kopieren" ein, falls kein
 Mailprogramm reagiert.
@@ -93,8 +97,8 @@ und würde die Aussagen in `datenschutz.html` falsch machen.
 ## Assets
 ```
 assets/video/hero-globe.mp4   # echtes Brand-Intro (Wasserzeichen weggecroppt)
-assets/brand/                 # echte Logos (logo-white, fhg-ag, …) von test.fitz-industries.ch
-assets/real/                  # echte Länder-Fotos (Adobe Stock) von test.fitz-industries.ch
+assets/brand/                 # echte Logos (logo-white, fhg-ag, …) von test.fitzindustries.ch
+assets/real/                  # echte Länder-Fotos (Adobe Stock) von test.fitzindustries.ch
 assets/img/                   # Branchen-Fotos pro Unternehmen (Unsplash) + Hero-Poster
 assets/fonts/                 # lokale Schriften
 ```

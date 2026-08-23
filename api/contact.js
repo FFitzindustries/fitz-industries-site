@@ -48,10 +48,10 @@ export default async function handler(req, res) {
   try {
     await transporter.sendMail({
       // From muss die eigene Domain sein, sonst scheitert SPF/DKIM.
-      from: `"Anfrage fitz-industries.ch" <${MAIL_FROM || SMTP_USER}>`,
+      from: `"Anfrage fitzindustries.ch" <${MAIL_FROM || SMTP_USER}>`,
       to: MAIL_TO,
       replyTo: `"${name}" <${email}>`,
-      subject: `Projektanfrage über fitz-industries.ch — ${name}`,
+      subject: `Projektanfrage über fitzindustries.ch — ${name}`,
       text: `Name: ${name}\nE-Mail: ${email}\n\nNachricht:\n${message}`,
       html:
         `<table style="font-family:system-ui,sans-serif;font-size:14px;border-collapse:collapse">` +
