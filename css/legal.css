@@ -77,6 +77,20 @@ body{
   color:var(--accent-1);font-weight:600;margin-bottom:.7rem;
 }
 
+/* Kontaktangaben in einer Reihe statt gestapelt */
+.lcontact{display:flex;flex-wrap:wrap;gap:1.5rem 3rem}
+.lcontact__item{display:flex;flex-direction:column;gap:.35rem;min-width:0}
+.lcontact__k{
+  font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--muted);font-weight:600;
+}
+.lcontact__item a{
+  color:var(--text);font-weight:400;text-decoration:none;
+  border-bottom:1px solid transparent;transition:color .25s,border-color .25s;
+}
+.lcontact__item a:hover{color:var(--accent-2);border-color:var(--accent-2)}
+@media(max-width:560px){.lcontact{flex-direction:column;gap:1.1rem}}
+
 /* Merksatz-/Hinweiskasten */
 .lnote{
   border-left:2px solid var(--accent-1);background:var(--bg-2);

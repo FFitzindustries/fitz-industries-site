@@ -14,21 +14,18 @@ wie sie aussehen, und was noch offen ist. Stand: 08.08.2026.
 Platzhalter-Privatperson auf **„Fitz Industries Schweiz"** (Gesellschaft) umgestellt — bewusst
 **ohne** Handelsregisterangaben, da die Gesellschaften nach letztem Stand noch nicht eingetragen
 sind. Das ist eine explizite Kunden-Entscheidung trotz des daraus resultierenden rechtlichen
-Risikos (siehe Abschnitt 2 unten). Die Adress-Platzhalter sind weiterhin offen.
+Risikos (siehe Abschnitt 2 unten).
+
+**Update (11.09.2026, 2):** Die Adress-Platzhalter (`[[ STRASSE NR ]]`, `[[ PLZ ORT ]]`) wurden auf
+Kundenwunsch **komplett entfernt statt ausgefüllt** — es steht jetzt nur noch „Fitz Industries
+Schweiz" ohne Anschrift. Damit ist die Impressumspflicht **nicht erfüllt**: eine ladungsfähige
+Anschrift ist grundsätzlich Pflichtangabe. Kein technischer Blocker mehr (keine Platzhalter-Strings
+mehr im Code), aber rechtlich weiterhin unvollständig.
 
 | # | Was fehlt | Wo einzutragen |
 |---|---|---|
-| 1 | **Ladungsfähige Anschrift** (Strasse, Nr., PLZ, Ort; kein Postfach) für „Fitz Industries Schweiz" | `impressum.html`, `datenschutz.html` — Platzhalter `[[ STRASSE NR ]]`, `[[ PLZ ORT ]]` |
+| 1 | **Ladungsfähige Anschrift** (Strasse, Nr., PLZ, Ort; kein Postfach) für „Fitz Industries Schweiz" — aktuell komplett nicht angegeben | `impressum.html`, `datenschutz.html`, Abschnitt „Verantwortlich" |
 | 2 | **Handelsregisterdaten** (Firmennummer, UID, Sitz, vertretungsberechtigte Organe), falls/sobald die Eintragung vorliegt — siehe Abschnitt 7 | Neuer Abschnitt „Handelsregister" in `impressum.html` |
-
-Beide Dateien immer **gemeinsam** ausfüllen. Suchbefehl:
-
-```bash
-grep -rn '\[\[' impressum.html datenschutz.html
-```
-
-**Solange diese Platzhalter drinstehen, dürfen die Seiten nicht deployt werden.**
-Die Links im Footer und im Mobile-Menü zeigen bereits auf sie.
 
 ## 2. Gewählter Rechtsrahmen
 
