@@ -96,13 +96,14 @@ kippen.)
 ## 5. Hosting
 
 - Produktion: **Vercel Inc., USA**, Team `fitz-industries`, Projekt `fitz-industries-site`,
-  Production-URL `https://www.fitz-industries.ch`.
+  Production-URL `https://www.fitzindustries.ch`.
 - In `datenschutz.html` Ziffer 4 namentlich genannt, Drittlandtransfer über
   EU-Standardvertragsklauseln begründet.
 - **Noch zu erledigen:** Auftragsbearbeitungsvertrag (DPA) mit Vercel abschliessen bzw. dessen
   Geltung dokumentieren.
-- Die Apex-Domain `fitz-industries.ch` zeigt derzeit auf easyname (`91.151.18.29`) und antwortet
-  nicht. Nur `www` läuft über Vercel. Siehe README, Abschnitt Deployment.
+- Primärdomain ist `fitzindustries.ch`; Apex und `www` laufen über Vercel. Die Altdomain
+  `fitz-industries.ch` leitet per `www` weiter, ihr Apex ist wegen eines Konflikt-A-Records auf
+  easyname (`91.151.18.29`) noch defekt. Siehe README, Abschnitt Deployment.
 
 ## 6. Bewusst nicht behandelt
 
