@@ -10,10 +10,16 @@ wie sie aussehen, und was noch offen ist. Stand: 08.08.2026.
 
 ## 1. Offene Punkte — Blocker vor dem Livegang
 
+**Update (11.09.2026):** Die verantwortliche Stelle wurde auf Kundenwunsch von der
+Platzhalter-Privatperson auf **„Fitz Industries Schweiz"** (Gesellschaft) umgestellt — bewusst
+**ohne** Handelsregisterangaben, da die Gesellschaften nach letztem Stand noch nicht eingetragen
+sind. Das ist eine explizite Kunden-Entscheidung trotz des daraus resultierenden rechtlichen
+Risikos (siehe Abschnitt 2 unten). Die Adress-Platzhalter sind weiterhin offen.
+
 | # | Was fehlt | Wo einzutragen |
 |---|---|---|
-| 1 | **Voller bürgerlicher Name** der verantwortlichen Person | `impressum.html`, `datenschutz.html` — Platzhalter `[[ VOLLSTÄNDIGER NAME ]]` |
-| 2 | **Ladungsfähige Anschrift** (Strasse, Nr., PLZ, Ort; kein Postfach) | dieselben Dateien — `[[ STRASSE NR ]]`, `[[ PLZ ORT ]]` |
+| 1 | **Ladungsfähige Anschrift** (Strasse, Nr., PLZ, Ort; kein Postfach) für „Fitz Industries Schweiz" | `impressum.html`, `datenschutz.html` — Platzhalter `[[ STRASSE NR ]]`, `[[ PLZ ORT ]]` |
+| 2 | **Handelsregisterdaten** (Firmennummer, UID, Sitz, vertretungsberechtigte Organe), falls/sobald die Eintragung vorliegt — siehe Abschnitt 7 | Neuer Abschnitt „Handelsregister" in `impressum.html` |
 
 Beide Dateien immer **gemeinsam** ausfüllen. Suchbefehl:
 
@@ -31,10 +37,13 @@ Die Links im Footer und im Mobile-Menü zeigen bereits auf sie.
   Personen in der EU richtet (Art. 3 Abs. 2 DSGVO).
 - **Kein Cookie-Banner.** Begründung: keine Cookies, kein Storage, kein Tracking, keine Embeds,
   keine Drittanbieter-Requests. Verifiziert am 08.08.2026 über `index.html`, `js/*.js`, `css/*.css`.
-- **Verantwortlicher ist eine natürliche Person**, nicht eine der Gesellschaften. Grund: Die
-  Fitz-Gesellschaften sind noch nicht im Handelsregister eingetragen. Ohne Eintrag gibt es keine
-  UID, keinen eingetragenen Sitz und keine vertretungsberechtigten Organe. Ein
-  Handelsregister-Abschnitt fehlt im Impressum deshalb bewusst.
+- **Verantwortlicher ist seit 11.09.2026 „Fitz Industries Schweiz"** (Gesellschaft statt
+  Privatperson), auf ausdrücklichen Kundenwunsch und **ohne** Handelsregisterangaben. Die
+  Fitz-Gesellschaften sind nach letztem Stand noch nicht im Handelsregister eingetragen — es gibt
+  also keine UID, keinen eingetragenen Sitz und keine vertretungsberechtigten Organe. Ein
+  Handelsregister-Abschnitt fehlt im Impressum deshalb weiterhin bewusst. **Rechtlich angreifbar**
+  (Impressumspflicht verlangt bei einer Gesellschaft eigentlich Rechtsform, Register-Nr. und
+  UID) — Risiko wurde dem Kunden benannt, Entscheidung liegt bei ihm.
 - **Grundregel:** lieber ein Abschnitt weniger als ein Platzhalter mehr. Keine Registernummern,
   Sitzangaben oder Aufsichtsbehörden eintragen, die nicht belegt sind.
 
